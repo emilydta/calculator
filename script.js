@@ -1,5 +1,4 @@
 const display = document.getElementById("display");
-//const total = document.getElementById("total");
 const seven = document.getElementById("seven");
 const eight = document.getElementById("eight");
 const nine = document.getElementById("nine");
@@ -18,62 +17,121 @@ const clear = document.getElementById("clear");
 const divide = document.getElementById("divide");
 
 
-
 let firstNumber = "";
 let secondNumber = "";
 let operator = "blank";
-let total = 0;
+let total = "";
 
 
 function operate() {
-    if (operator === "+") {
+    if (secondNumber == false) {
+        return;
+    } else if (operator === "+") {
         total = parseInt(firstNumber) + parseInt(secondNumber);
         operator = "blank";
         firstNumber = total;
         secondNumber = "";
         return display.innerText = total;
     } else if (operator === "-") {
-        return subtractButton(firstNumber, secondNumber);
-    }
-    return;
+        total = parseInt(firstNumber) - parseInt(secondNumber);
+        operator = "blank";
+        firstNumber = total;
+        secondNumber = "";
+        return display.innerText = total;
+    } else if (operator === "x") {
+        total = parseInt(firstNumber) * parseInt(secondNumber);
+        operator = "blank";
+        firstNumber = total;
+        secondNumber = "";
+        return display.innerText = total;
+    } else if (operator === "/") {
+        total = parseInt(firstNumber) / parseInt(secondNumber);
+        operator = "blank";
+        firstNumber = total;
+        secondNumber = "";
+        return display.innerText = total;
+    } return;
 }
 
 
 function addButton() {
-    if (operator === "+") {
+    if (operator === "-" || operator === "x" || operator === "/") {
+        return;
+    } else if (secondNumber == false) {
+        operator = "+";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (operator === "+") {
         total = parseInt(firstNumber) + parseInt(secondNumber);
         firstNumber = total;
         secondNumber = ""
         return display.innerText = total;
-    } else if (secondNumber != true) {
-        operator = "+";
-        return display.innerText = `${firstNumber} ${operator}`;
-    } else 
+    }   else 
         total = parseInt(firstNumber) + parseInt(secondNumber);
         return display.innerText = total;
 }
 
-function subtractButton(firstNumber, secondNumber) {
-    return firstNumber-secondNumber;
+function subtractButton() {
+    if (operator === "+" || operator === "x" || operator === "/") {
+        return;
+    } else if (secondNumber == false) {
+        operator = "-";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (operator === "-") {
+        total = parseInt(firstNumber) + parseInt(secondNumber);
+        firstNumber = total;
+        secondNumber = ""
+        return display.innerText = total;
+    }   else 
+        total = parseInt(firstNumber) - parseInt(secondNumber);
+        return display.innerText = total;
 }
 
-function multiplyButton(firstNumber, secondNumber) {
-    return firstNumber*secondNumber;
+function multiplyButton() {
+    if (operator === "+" || operator === "-" || operator === "/") {
+        return;
+    } else if (secondNumber == false) {
+        operator = "x";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (operator === "x") {
+        total = parseInt(firstNumber) * parseInt(secondNumber);
+        firstNumber = total;
+        secondNumber = ""
+        return display.innerText = total;
+    }   else 
+        total = parseInt(firstNumber) * parseInt(secondNumber);
+        return display.innerText = total;
 }
 
-function divideButton(firstNumber, secondNumber) {
-    return firstNumber/secondNumber;
+function divideButton() {
+    if (operator === "+" || operator === "-" || operator === "x") {
+        return;
+    } else if (secondNumber == false) {
+        operator = "/";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (operator === "/") {
+        total = parseInt(firstNumber) / parseInt(secondNumber);
+        firstNumber = total;
+        secondNumber = ""
+        return display.innerText = total;
+    }   else 
+        total = parseInt(firstNumber) / parseInt(secondNumber);
+        return display.innerText = total;
 }
 
 function clearButton() {
     firstNumber = "";
     secondNumber = "";
     operator = "blank";
+    total = "";
     display.innerText = firstNumber + secondNumber;
 }
 
 function sevenButton() {
-    if (operator == "blank") {
+    if (total != false && firstNumber !== false && secondNumber !== true && operator === "blank") {
+        clearButton();
+        firstNumber = firstNumber + "7";
+        display.innerText = firstNumber;
+    } else if (operator == "blank") {
        firstNumber = firstNumber + "7";
        display.innerText = firstNumber;
     } else if (operator !== "blank") {
@@ -83,7 +141,11 @@ function sevenButton() {
 }
 
 function eightButton() {
-    if (operator == "blank") {
+    if (total != false && firstNumber !== false && secondNumber !== true && operator === "blank") {
+        clearButton();
+        firstNumber = firstNumber + "8";
+        display.innerText = firstNumber;
+    } else if (operator == "blank") {
         firstNumber = firstNumber + "8";
         display.innerText = firstNumber;
      } else if (operator !== "blank") {
@@ -95,6 +157,9 @@ function eightButton() {
 seven.addEventListener("click", () => sevenButton());
 eight.addEventListener("click", () => eightButton());
 add.addEventListener("click", () => addButton());
+subtract.addEventListener("click", () => subtractButton());
+multiply.addEventListener("click", () => multiplyButton());
+divide.addEventListener("click", () => divideButton());
 clear.addEventListener("click", () => clearButton());
 equals.addEventListener("click", () => operate());
 
