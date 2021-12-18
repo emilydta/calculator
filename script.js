@@ -40,7 +40,12 @@ function operate() {
 
 
 function addButton() {
-    if (secondNumber != true) {
+    if (operator === "+") {
+        total = parseInt(firstNumber) + parseInt(secondNumber);
+        firstNumber = total;
+        secondNumber = ""
+        return display.innerText = total;
+    } else if (secondNumber != true) {
         operator = "+";
         return display.innerText = `${firstNumber} ${operator}`;
     } else 
@@ -63,6 +68,7 @@ function divideButton(firstNumber, secondNumber) {
 function clearButton() {
     firstNumber = "";
     secondNumber = "";
+    operator = "blank";
     display.innerText = firstNumber + secondNumber;
 }
 
