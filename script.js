@@ -150,7 +150,7 @@ function clearButton() {
 }
 
 function sevenButton() {
-    if (total != false && firstNumber !== false && secondNumber !== true && operator === "blank") {
+    if (total && firstNumber && !secondNumber && operator === "blank") {
         clearButton();
         firstNumber = firstNumber + "7";
         display.innerText = firstNumber;
@@ -164,7 +164,7 @@ function sevenButton() {
 }
 
 function eightButton() {
-    if (total != false && firstNumber !== false && secondNumber !== true && operator === "blank") {
+    if (total && firstNumber && !secondNumber && operator === "blank") {
         clearButton();
         firstNumber = firstNumber + "8";
         display.innerText = firstNumber;
