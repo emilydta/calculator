@@ -163,22 +163,22 @@ function sevenButton() {
     }
 }
 
-function eightButton() {
+window.addEventListener("keydown", function(e) {
+    const calculatorButton = document.querySelector(`button[data-key="${e.keyCode}"]`);
+    if(!calculatorButton) return;
     if (total && firstNumber && !secondNumber && operator === "blank") {
         clearButton();
-        firstNumber = firstNumber + "8";
+        firstNumber = firstNumber + `${e.key}`;
         display.innerText = firstNumber;
     } else if (operator == "blank") {
-        firstNumber = firstNumber + "8";
-        display.innerText = firstNumber;
-     } else if (operator !== "blank") {
-         secondNumber = secondNumber + "8";
-         return display.innerText = `${firstNumber} ${operator} ${secondNumber}`;
-     }
-}
+       firstNumber = firstNumber + `${e.key}`;
+       display.innerText = firstNumber;
+    } else if (operator !== "blank") {
+        secondNumber = secondNumber + `${e.key}`;
+        return display.innerText = `${firstNumber} ${operator} ${secondNumber}`;
+    }
+});
 
-seven.addEventListener("click", () => sevenButton());
-eight.addEventListener("click", () => eightButton());
 add.addEventListener("click", () => addButton());
 subtract.addEventListener("click", () => subtractButton());
 multiply.addEventListener("click", () => multiplyButton());
