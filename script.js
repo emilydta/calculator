@@ -24,7 +24,7 @@ let total = "";
 
 
 function operate() {
-    if (secondNumber == false) {
+    if (!secondNumber) {
         return;
     } else if (operator === "+") {
         total = parseInt(firstNumber) + parseInt(secondNumber);
@@ -55,67 +55,90 @@ function operate() {
 
 
 function addButton() {
-    if (operator === "-" || operator === "x" || operator === "/") {
-        return;
-    } else if (secondNumber == false) {
+    if (!secondNumber && operator === "-") {
+        operator = "+";
+        return display.innerText = `${firstNumber} ${operator}`; 
+    } else if (!secondNumber && operator === "x") {
+        operator = "+";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (!secondNumber && operator === "/") {
+        operator = "+";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (!secondNumber) {
         operator = "+";
         return display.innerText = `${firstNumber} ${operator}`;
     } else if (operator === "+") {
         total = parseInt(firstNumber) + parseInt(secondNumber);
         firstNumber = total;
         secondNumber = ""
+        operator = "blank";
         return display.innerText = total;
-    }   else 
-        total = parseInt(firstNumber) + parseInt(secondNumber);
-        return display.innerText = total;
+    }   
 }
 
 function subtractButton() {
-    if (operator === "+" || operator === "x" || operator === "/") {
-        return;
-    } else if (secondNumber == false) {
+    if (!secondNumber && operator === "+") {
+        operator = "-";
+        return display.innerText = `${firstNumber} ${operator}`; 
+    } else if (!secondNumber && operator === "x") {
+        operator = "-";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (!secondNumber && operator === "/") {
+        operator = "-";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (!secondNumber) {
         operator = "-";
         return display.innerText = `${firstNumber} ${operator}`;
     } else if (operator === "-") {
-        total = parseInt(firstNumber) + parseInt(secondNumber);
+        total = parseInt(firstNumber) - parseInt(secondNumber);
         firstNumber = total;
         secondNumber = ""
+        operator = "blank";
         return display.innerText = total;
-    }   else 
-        total = parseInt(firstNumber) - parseInt(secondNumber);
-        return display.innerText = total;
+    }   
 }
 
 function multiplyButton() {
-    if (operator === "+" || operator === "-" || operator === "/") {
-        return;
-    } else if (secondNumber == false) {
+    if (!secondNumber && operator === "-") {
+        operator = "x";
+        return display.innerText = `${firstNumber} ${operator}`; 
+    } else if (!secondNumber && operator === "+") {
+        operator = "x";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (!secondNumber && operator === "/") {
+        operator = "x";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (!secondNumber) {
         operator = "x";
         return display.innerText = `${firstNumber} ${operator}`;
     } else if (operator === "x") {
         total = parseInt(firstNumber) * parseInt(secondNumber);
         firstNumber = total;
         secondNumber = ""
+        operator = "blank";
         return display.innerText = total;
-    }   else 
-        total = parseInt(firstNumber) * parseInt(secondNumber);
-        return display.innerText = total;
+    }   
 }
-
 function divideButton() {
-    if (operator === "+" || operator === "-" || operator === "x") {
-        return;
-    } else if (secondNumber == false) {
+    if (!secondNumber && operator === "-") {
+        operator = "/";
+        return display.innerText = `${firstNumber} ${operator}`; 
+    } else if (!secondNumber && operator === "x") {
+        operator = "/";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (!secondNumber && operator === "+") {
+        operator = "/";
+        return display.innerText = `${firstNumber} ${operator}`;
+    } else if (!secondNumber) {
         operator = "/";
         return display.innerText = `${firstNumber} ${operator}`;
     } else if (operator === "/") {
         total = parseInt(firstNumber) / parseInt(secondNumber);
         firstNumber = total;
         secondNumber = ""
+        operator = "blank";
         return display.innerText = total;
-    }   else 
-        total = parseInt(firstNumber) / parseInt(secondNumber);
-        return display.innerText = total;
+    }   
 }
 
 function clearButton() {
