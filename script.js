@@ -23,47 +23,36 @@ let operator = "blank";
 let total = "";
 
 
+function stateAfterOperate() {
+    operator = "blank";
+    firstNumber = total;
+    secondNumber = "";
+    return display.innerText = total;
+}
+
 function operate() {
     if (!secondNumber) {
         return;
     } else if (operator === "+") {
         total = parseInt(firstNumber) + parseInt(secondNumber);
-        operator = "blank";
-        firstNumber = total;
-        secondNumber = "";
-        return display.innerText = total;
+        return stateAfterOperate();    
     } else if (operator === "-") {
         total = parseInt(firstNumber) - parseInt(secondNumber);
-        operator = "blank";
-        firstNumber = total;
-        secondNumber = "";
-        return display.innerText = total;
+        return stateAfterOperate();
     } else if (operator === "x") {
         total = parseInt(firstNumber) * parseInt(secondNumber);
-        operator = "blank";
-        firstNumber = total;
-        secondNumber = "";
-        return display.innerText = total;
+        return stateAfterOperate();
     } else if (operator === "/") {
         total = parseInt(firstNumber) / parseInt(secondNumber);
-        operator = "blank";
-        firstNumber = total;
-        secondNumber = "";
-        return display.innerText = total;
+        return stateAfterOperate();
     } return;
 }
 
 
 function addButton() {
-    if (!secondNumber && operator === "-") {
+    if (!secondNumber && operator !== "+") {
         operator = "+";
         return display.innerText = `${firstNumber} ${operator}`; 
-    } else if (!secondNumber && operator === "x") {
-        operator = "+";
-        return display.innerText = `${firstNumber} ${operator}`;
-    } else if (!secondNumber && operator === "/") {
-        operator = "+";
-        return display.innerText = `${firstNumber} ${operator}`;
     } else if (!secondNumber) {
         operator = "+";
         return display.innerText = `${firstNumber} ${operator}`;
@@ -77,15 +66,9 @@ function addButton() {
 }
 
 function subtractButton() {
-    if (!secondNumber && operator === "+") {
+    if (!secondNumber && operator !== "-") {
         operator = "-";
         return display.innerText = `${firstNumber} ${operator}`; 
-    } else if (!secondNumber && operator === "x") {
-        operator = "-";
-        return display.innerText = `${firstNumber} ${operator}`;
-    } else if (!secondNumber && operator === "/") {
-        operator = "-";
-        return display.innerText = `${firstNumber} ${operator}`;
     } else if (!secondNumber) {
         operator = "-";
         return display.innerText = `${firstNumber} ${operator}`;
@@ -99,15 +82,9 @@ function subtractButton() {
 }
 
 function multiplyButton() {
-    if (!secondNumber && operator === "-") {
+    if (!secondNumber && operator !== "x") {
         operator = "x";
         return display.innerText = `${firstNumber} ${operator}`; 
-    } else if (!secondNumber && operator === "+") {
-        operator = "x";
-        return display.innerText = `${firstNumber} ${operator}`;
-    } else if (!secondNumber && operator === "/") {
-        operator = "x";
-        return display.innerText = `${firstNumber} ${operator}`;
     } else if (!secondNumber) {
         operator = "x";
         return display.innerText = `${firstNumber} ${operator}`;
@@ -120,15 +97,9 @@ function multiplyButton() {
     }   
 }
 function divideButton() {
-    if (!secondNumber && operator === "-") {
+    if (!secondNumber && operator !== "/") {
         operator = "/";
         return display.innerText = `${firstNumber} ${operator}`; 
-    } else if (!secondNumber && operator === "x") {
-        operator = "/";
-        return display.innerText = `${firstNumber} ${operator}`;
-    } else if (!secondNumber && operator === "+") {
-        operator = "/";
-        return display.innerText = `${firstNumber} ${operator}`;
     } else if (!secondNumber) {
         operator = "/";
         return display.innerText = `${firstNumber} ${operator}`;
@@ -179,6 +150,7 @@ window.addEventListener("keydown", function(e) {
     }
 });
 
+seven.addEventListener("click", () => sevenButton());
 add.addEventListener("click", () => addButton());
 subtract.addEventListener("click", () => subtractButton());
 multiply.addEventListener("click", () => multiplyButton());
