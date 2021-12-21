@@ -39,7 +39,8 @@ function operate() {
     } else if (operator === "x") {
         return multiplyButton();
     } else if (operator === "/") {
-        return divideButton();
+        divideButton()
+        return divideByZero();
     } return;
 }
 
@@ -99,9 +100,17 @@ function divideButton() {
     } else if (operator === "/") {
         total = parseInt(firstNumber) / parseInt(secondNumber);
         stateAfterOperate();
+        return divideByZero();
     }   
 }
 
+function divideByZero () {
+    if (isNaN(firstNumber) || isNaN(total)) {
+        clearButton();
+        display.innerText = "smh";
+        return;
+    }
+}
 
 // Button Functionality
 
