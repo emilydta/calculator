@@ -29,6 +29,14 @@ function clearButton() {
     display.innerText = firstNumber + secondNumber;
 }
 
+function divideByZero () {
+    if (isNaN(firstNumber) || isNaN(total)) {
+        clearButton();
+        display.innerText = "smh";
+        return;
+    }
+}
+
 function operate() {
     if (!secondNumber) {
         return;
@@ -104,14 +112,6 @@ function divideButton() {
     }   
 }
 
-function divideByZero () {
-    if (isNaN(firstNumber) || isNaN(total)) {
-        clearButton();
-        display.innerText = "smh";
-        return;
-    }
-}
-
 // Button Functionality
 
 numberButtons.forEach(numberButton => { 
@@ -176,14 +176,15 @@ window.addEventListener("keydown", function(e) {
     divideButton(); 
 });
 
-window.addEventListener("keydown", function(e) {
-    if(e.key !== "Enter") return;
-    operate(); 
-});
 
 window.addEventListener("keydown", function(e) {
     if(e.key !== "c") return;
     clearButton(); 
 });
 
+
+window.addEventListener("keydown", function(e) {
+    if(e.key !== "Enter") return;
+    operate(); 
+});
 
