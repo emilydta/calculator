@@ -55,7 +55,7 @@ function operate() {
 function addButton() {
     if (!firstNumber) {
         return;
-    }else if (!secondNumber && operator !== "+") {
+    } else if (!secondNumber && operator !== "+") {
         operator = "+";
         return display.innerText = `${firstNumber} ${operator}`; 
     } else if (!secondNumber) {
@@ -96,6 +96,7 @@ function multiplyButton() {
         stateAfterOperate();
     }   
 }
+
 function divideButton() {
     if (!firstNumber) {
         return;
@@ -118,13 +119,13 @@ numberButtons.forEach(numberButton => {
     numberButton.addEventListener("click", (e) => {
         if (total && firstNumber && !secondNumber && operator === "blank") {
             clearButton();
-            firstNumber = firstNumber + `${e.target.value}`;
+            firstNumber = firstNumber + e.target.value;
             display.innerText = firstNumber;
         } else if (operator == "blank") {
-            firstNumber = firstNumber + `${e.target.value}`;
+            firstNumber = firstNumber + e.target.value;
             display.innerText = firstNumber;
         } else if (operator !== "blank") {
-            secondNumber = secondNumber + `${e.target.value}`;
+            secondNumber = secondNumber + e.target.value;
             return display.innerText = `${firstNumber} ${operator} ${secondNumber}`;
         };
     });
@@ -145,13 +146,13 @@ window.addEventListener("keydown", function(e) {
     if(!numberPress) return;
     if (total && firstNumber && !secondNumber && operator === "blank") {
         clearButton();
-        firstNumber = firstNumber + `${e.key}`;
+        firstNumber = firstNumber + e.key;
         display.innerText = firstNumber;
     } else if (operator == "blank") {
-       firstNumber = firstNumber + `${e.key}`;
+       firstNumber = firstNumber + e.key;
        display.innerText = firstNumber;
     } else if (operator !== "blank") {
-        secondNumber = secondNumber + `${e.key}`;
+        secondNumber = secondNumber + e.key;
         return display.innerText = `${firstNumber} ${operator} ${secondNumber}`;
     }
 });
