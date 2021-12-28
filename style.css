@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Arial;
-    background: #355C7D;
+    background: #221c29;
     overflow: hidden;
 }
 
@@ -17,7 +17,7 @@ body {
     width: 60vmin;
     height: 70vmin;
     border-radius: 1%;
-    background: #6C5B7B;
+    background: #372c45;
 }
 
 .container {
@@ -34,12 +34,11 @@ body {
     justify-content: right;
     align-items: center;
     overflow: hidden;
-    background: white;
+    background: #9c90ab;
     width: 50vmin;
     height: 10vmin;
     margin-bottom: 2em;
     border-radius: 1%;
-    background: #ffc2d3;
 }
 
 #display {
