@@ -185,6 +185,6 @@ window.addEventListener("keydown", function(e) {
 
 window.addEventListener("keydown", function(e) {
     if(e.key !== "Enter") return;
-    operate(); 
+    operate();
 });
 
