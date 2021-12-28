@@ -6,6 +6,7 @@ body {
     align-items: center;
     font-family: Arial;
     background: #355C7D;
+    overflow: hidden;
 }
 
 .container-wrapper {
