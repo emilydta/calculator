@@ -14,8 +14,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 70vmin;
-    height: 80vmin;
+    width: 60vmin;
+    height: 70vmin;
     border-radius: 1%;
     background: #6C5B7B;
 }
@@ -25,8 +25,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 60vmin;
-    height: 70vmin;
+    width: 50vmin;
+    height: 60vmin;
 }
 
 .display-container {
@@ -35,8 +35,8 @@ body {
     align-items: center;
     overflow: hidden;
     background: white;
-    width: 60vmin;
-    height: 15vmin;
+    width: 50vmin;
+    height: 5vmin;
     margin-bottom: 2em;
     border-radius: 1%;
     background: #ffc2d3;
