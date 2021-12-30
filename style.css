@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial;
+    font-family: sans-serif;
     background: #221c29;
     overflow: hidden;
 }
@@ -17,7 +17,6 @@ body {
     width: 60vmin;
     height: 70vmin;
     border-radius: 1%;
-    background: #372c45;
 }
 
 .container {
@@ -32,9 +31,11 @@ body {
 .display-container {
     display: flex;
     justify-content: right;
-    align-items: center;
+    align-items: end;
     overflow: hidden;
-    background: #9c90ab;
+    background: #644566;
+    color: white;
+    font-weight: bold;
     width: 50vmin;
     height: 10vmin;
     margin-bottom: 2em;
@@ -43,7 +44,7 @@ body {
 
 #display {
     padding: 0.5em;
-    font-size: 2.5em;
+    font-size: 1.5rem;
 }
 
 .buttons-container {
@@ -56,16 +57,20 @@ body {
 }
 
 button {
-    font-size: 2em;
+    font-size: 1.5rem;
+    font-weight: bold;
     cursor: pointer;
-    background: #f8B195;
+    background: #644566;
+    color: white;
     border: none;
     border-radius: 2%;
+    font-family: sans-serif;
+
 }
 
 #Enter, .clear {
     grid-column: span 2;
-    background: #C06C84;
+    background: #a35068;
 }
 
 [value~="0"] {
